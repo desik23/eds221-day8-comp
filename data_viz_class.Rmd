@@ -151,7 +151,7 @@ ww_lizards_1 <- lizards %>%
   filter(common_name == "western whiptail",
          site == "sand")
 
-ggplot(data = WW_lizards_1, aes(x = total_length, y = weight)) + 
+ggplot(data = ww_lizards_1, aes(x = total_length, y = weight)) + 
   geom_point() +
   geom_text_repel(aes(label = toe_num), size = 3, max.overlaps = 20)
 
@@ -257,5 +257,12 @@ ggplot(jornada_vegetation) +
        y = "Latitude",
        fill = "Dominant vegeation:")
 
-```
+``````{r, fig.alt= "Histograms of distributions of body masses for Adelie, Chinstrap and Gentoo, with Gentoo having larger spread "}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(palmerpenguins)
 
+ggplot(penguins, aes(x = body_mass_g)) +
+  geom_histogram() +
+  facet_wrap(~species)
+```
